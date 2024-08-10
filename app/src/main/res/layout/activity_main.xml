@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#80D8FF"
     android:visibility="visible"
     tools:context=".MainActivity">
 
@@ -100,12 +101,13 @@
         android:id="@+id/tipAdjective"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvTipValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTipPercentValue"
         tools:text="Good" />
@@ -165,9 +167,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="105dp"
             android:inputType="number"
-            tools:text="TextView"
             android:textSize="18sp"
-            tools:ignore="TextViewEdits" />
+            tools:ignore="TextViewEdits"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/tvMemberShare"
@@ -177,9 +179,9 @@
             android:layout_marginTop="140dp"
             android:layout_marginBottom="60dp"
             android:inputType="number|numberDecimal"
-            tools:text="TextView"
             android:textSize="16sp"
-            tools:ignore="TextViewEdits" />
+            tools:ignore="TextViewEdits"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/textView16"
