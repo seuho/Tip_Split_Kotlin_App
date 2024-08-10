@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        splitBill.setOnCheckedChangeListener { compoundButton, isChecked ->
+        splitBill.setOnCheckedChangeListener { _, isChecked ->
             run {
                 if (isChecked) {
                     splitView.visibility = View.VISIBLE
