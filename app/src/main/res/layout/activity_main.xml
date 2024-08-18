@@ -1,195 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#80D8FF"
-    android:visibility="visible"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
-
+    <!-- Title -->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="88dp"
-        android:text="@string/base"
-        android:textSize="20sp"
+        android:text="@string/app_name"
+        android:textSize="28sp"
+        android:textColor="@color/primaryTextColor"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
 
+    <!-- Bill Amount Section -->
     <EditText
         android:id="@+id/billAmount"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="74dp"
-        android:autofillHints=""
-        android:ems="8"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_background"
         android:hint="@string/bill_amount"
         android:inputType="numberDecimal"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="16dp"
+        android:textColor="@color/primaryTextColor"
+        android:textColorHint="@color/secondaryTextColor"
+        android:textSize="24sp"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText" />
+
+    <!-- Tip Percentage Label and SeekBar -->
     <TextView
         android:id="@+id/tvTipPercentLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:text="24%" />
+        android:text="Tip Percentage:"
+        android:textSize="18sp"
+        android:textColor="@color/primaryTextColor"
+        app:layout_constraintTop_toBottomOf="@id/billAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"/>
 
-    <TextView
-        android:id="@+id/tvTipLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/tip"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvTipPercentLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tvTipPercentLabel" />
-
-    <TextView
-        android:id="@+id/tvTotalLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/total"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvTipLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
-
+    <!-- Tip and Total Value Section -->
     <SeekBar
         android:id="@+id/tvTipPercentValue"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
         android:max="30"
-        app:layout_constraintStart_toEndOf="@+id/tvTipPercentLabel"
-        app:layout_constraintTop_toBottomOf="@+id/billAmount" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/tvTipPercentLabel"
+        app:layout_constraintTop_toBottomOf="@id/billAmount" />
+
+    <TextView
+        android:id="@+id/tvTipValueLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="48dp"
+        android:text="Tip:"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTipPercentValue" />
 
     <TextView
         android:id="@+id/tvTipValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="62dp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/tvTipLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tvTipPercentValue"
-        tools:text="19.96" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
+        android:text="$0.00"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvTipValueLabel"
+        app:layout_constraintTop_toBottomOf="@id/tvTipPercentValue" />
+
+    <TextView
+        android:id="@+id/tvTotalValueLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="Total:"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTipValue" />
+
+    <!-- Tip Adjective -->
+
+    <!-- Split Bill Switch -->
 
     <TextView
         android:id="@+id/tvTotalValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="52dp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/tvTotalLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tvTipValue"
-        tools:text="103.11" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="$0.00"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvTotalValueLabel"
+        app:layout_constraintTop_toBottomOf="@id/tvTipValue" />
 
     <TextView
         android:id="@+id/tipAdjective"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/secondaryTextColor"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvTipValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTipPercentValue"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="Good" />
 
+    <!-- Split View Card -->
     <Switch
         android:id="@+id/splitBill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="52dp"
-        android:height="48dp"
-        android:rotationX="0"
-        android:scrollbarSize="8dp"
-        android:showText="false"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
         android:text="@string/split_bill"
-        android:textColor="@color/m3_default_color_secondary_text"
-        android:textSize="20sp"
-        android:visibility="invisible"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTotalLabel"
-        tools:ignore="PrivateResource,UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@id/tvTotalValue" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/SplitView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
-        android:minHeight="200dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/splitBill"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:cardElevation="4dp"
+        app:cardCornerRadius="12dp"
+        android:backgroundTint="@color/cardBackgroundColor">
 
-        <SeekBar
-            android:id="@+id/memberSeekBar"
-            android:layout_width="160dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="70dp"
-            android:max="10" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="35dp"
-            android:text="@string/number_of_members" />
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/number_of_members"
+                android:textSize="16sp"
+                android:textColor="@color/primaryTextColor"
+                android:layout_gravity="center_horizontal"/>
 
-        <TextView
-            android:id="@+id/tvMemberLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="105dp"
-            android:inputType="number"
-            android:textSize="18sp"
-            tools:ignore="TextViewEdits"
-            tools:text="TextView" />
+            <SeekBar
+                android:id="@+id/memberSeekBar"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:max="10"/>
 
-        <TextView
-            android:id="@+id/tvMemberShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="140dp"
-            android:layout_marginBottom="60dp"
-            android:inputType="number|numberDecimal"
-            android:textSize="16sp"
-            tools:ignore="TextViewEdits"
-            tools:text="TextView" />
+            <TextView
+                android:id="@+id/tvMemberLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Members: 1"
+                android:textSize="16sp"
+                android:textColor="@color/primaryTextColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="175dp"
-            android:text="@string/per_person_share" />
+            <TextView
+                android:id="@+id/tvMemberShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share: $0.00"
+                android:textSize="16sp"
+                android:textColor="@color/primaryTextColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/per_person_share"
+                android:textSize="14sp"
+                android:textColor="@color/secondaryTextColor"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

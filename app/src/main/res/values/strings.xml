@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">First Application</string>
+    <string name="app_name">Expensepal</string>
     <string name="bill_amount">Bill Amount</string>
     <string name="tip">Tip</string>
     <string name="total">Total</string>

@@ -126,14 +126,20 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun computeTipAndTotal() {
-        if(baseAmount.text.isEmpty()){
+        val bill = baseAmount.text
+
+        if(bill.isEmpty() || bill.toString().toDouble() == 0.0){
             tipValue.text = ""
             totalValue.text = ""
             splitBill.visibility = View.INVISIBLE
+            splitBill.isChecked = false  // Reset switch state
+            splitView.visibility = View.INVISIBLE
+            memberShare.text = ""  // Reset member share
+            memberSeekBar.progress = 0 // Reset member seek bar
             return
         }
         else {
-            val billAmount = baseAmount.text.toString().toDouble()
+            val billAmount = bill.toString().toDouble()
             val tipPercent = tipSeekBar.progress
             val tipAmount = (billAmount * tipPercent.toFloat()/ 100)
             val totalAmount = (billAmount + tipAmount)
@@ -141,6 +147,9 @@ class MainActivity : AppCompatActivity() {
             tipValue.text = "%.2f".format(tipAmount)
             totalValue.text = "%.2f".format(totalAmount)
             splitBill.visibility = View.VISIBLE
+            if (splitBill.isChecked) {
+                computeMemberShare(memberSeekBar.progress)  // Update member share if splitting is enabled
+            }
         }
 
     }
